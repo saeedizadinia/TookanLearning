@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "698165886724",
+    "firebase_url": "https://tookanlearning.firebaseio.com",
+    "project_id": "tookanlearning",
+    "storage_bucket": "tookanlearning.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698165886724:android:e6346f66d66222ec08da51",
+        "android_client_info": {
+          "package_name": "tech.tookan.tookanlearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698165886724-m9pqa9oeosbkfe4v0ft33u9u3jf3uikg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4Yf38D0NLNalv_pR7bugQPMECj3wJguQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698165886724-m9pqa9oeosbkfe4v0ft33u9u3jf3uikg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">TookanLearning</string>
+    <string name="app_name">TookanTech Learning</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="txt_st_request">StringRequest is shown in here</string>
-    <string name="retrofit_volley">Retrofit/Volley</string>
+    <string name="crash">Force Crash</string>
 </resources>

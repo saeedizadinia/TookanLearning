@@ -1,8 +1,10 @@
 package tech.tookan.tookanlearning;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +21,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -31,7 +34,7 @@ import tech.tookan.tookanlearning.objects.User;
 
 public class MainActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
-
+    private FirebaseAnalytics mFireBaseAnalytics;
     public static final String URL = "https://api.github.com/users";
     final String TAG = "TAG";
     RequestQueue queue;
@@ -43,10 +46,10 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-//            if (getWindow().getDecorView().getLayoutDirection() == View.LAYOUT_DIRECTION_LTR)
-//                getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-//        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (getWindow().getDecorView().getLayoutDirection() == View.LAYOUT_DIRECTION_LTR)
+                getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        }
         recyclerView = findViewById(R.id.main_recycler_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements
         /** Uncomment below to use volley instead and comment retrofit method*/
         //populateUIWithVolley();
         populateUIWithRetrofit();
+        mFireBaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     private void populateUIWithVolley() {
@@ -137,8 +141,8 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.retrVolley) {
-            //do nothing
+        if (id == R.id.forceCrash) {
+            throw new RuntimeException("CRASH"); // force a crash for Crashlytics
         } else {
             DrawerLayout drawer = findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.END);
